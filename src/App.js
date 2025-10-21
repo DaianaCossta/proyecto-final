@@ -8,28 +8,34 @@ import EstadisticasPersonales from './components/EstadisticasPersonales';
 
 function App() {
   const [juegos, setJuegos] = useState([
-    {
-      id: 1,
-      titulo: "The Last of Us",
-      genero: "Aventura",
-      completado: true,
-      puntuacion: 5
-    },
-    {
-      id: 2,
-      titulo: "Hollow Knight",
-      genero: "Metroidvania",
-      completado: true,
-      puntuacion: 5
-    },
-    {
-      id: 3,
-      titulo: "Elden Ring",
-      genero: "RPG",
-      completado: false,
-      puntuacion: 4
-    }
-  ]);
+  {
+    id: 1,
+    titulo: "The Last of Us",
+    genero: "Aventura",
+    completado: true,
+    puntuacion: 5,
+    horasJugadas: 45,
+    portadaURL: "https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=400&h=300&fit=crop"
+  },
+  {
+    id: 2,
+    titulo: "Hollow Knight",
+    genero: "Metroidvania",
+    completado: true,
+    puntuacion: 5,
+    horasJugadas: 60,
+    portadaURL: "https://images.unsplash.com/photo-1511512578047-dfb367046420?w=400&h=300&fit=crop"
+  },
+  {
+    id: 3,
+    titulo: "Elden Ring",
+    genero: "RPG",
+    completado: false,
+    puntuacion: 4,
+    horasJugadas: 120,
+    portadaURL: "https://images.unsplash.com/photo-1552820728-8b83bb6b773f?w=400&h=300&fit=crop"
+  }
+]);
 
   const [reseñas, setReseñas] = useState([
     {

@@ -2,39 +2,39 @@ import { useState } from 'react';
 import './FormularioJuego.css';
 
 function FormularioJuego({ onAgregarJuego }) {
-  // Estados para cada campo del formulario
   const [titulo, setTitulo] = useState("");
   const [genero, setGenero] = useState("");
   const [puntuacion, setPuntuacion] = useState(3);
   const [completado, setCompletado] = useState(false);
+  const [horasJugadas, setHorasJugadas] = useState(0);
+  const [portadaURL, setPortadaURL] = useState("");
 
-  // Función que se ejecuta al enviar el formulario
   const manejarSubmit = (e) => {
-    e.preventDefault(); // Evita que la página se recargue
+    e.preventDefault();
     
-    // Validación simple
     if (titulo.trim() === "" || genero.trim() === "") {
-      alert("Por favor completa todos los campos");
+      alert("Por favor completa al menos el título y género");
       return;
     }
 
-    // Crear objeto con los datos del nuevo juego
     const nuevoJuego = {
-      id: Date.now(), // ID temporal (luego vendrá del backend)
+      id: Date.now(),
       titulo: titulo,
       genero: genero,
       puntuacion: puntuacion,
-      completado: completado
+      completado: completado,
+      horasJugadas: horasJugadas,
+      portadaURL: portadaURL
     };
 
-    // Llamar a la función que nos pasaron por props
     onAgregarJuego(nuevoJuego);
 
-    // Limpiar el formulario
     setTitulo("");
     setGenero("");
     setPuntuacion(3);
     setCompletado(false);
+    setHorasJugadas(0);
+    setPortadaURL("");
   };
 
   return (
@@ -43,7 +43,7 @@ function FormularioJuego({ onAgregarJuego }) {
       
       <form onSubmit={manejarSubmit}>
         <div className="campo">
-          <label>Título del juego:</label>
+          <label>Título del juego: *</label>
           <input
             type="text"
             value={titulo}
@@ -53,12 +53,38 @@ function FormularioJuego({ onAgregarJuego }) {
         </div>
 
         <div className="campo">
-          <label>Género:</label>
+          <label>Género: *</label>
           <input
             type="text"
             value={genero}
             onChange={(e) => setGenero(e.target.value)}
             placeholder="Ej: Aventura"
+          />
+        </div>
+
+        <div className="campo">
+          <label>URL de la portada (opcional):</label>
+          <input
+            type="text"
+            value={portadaURL}
+            onChange={(e) => setPortadaURL(e.target.value)}
+            placeholder="https://ejemplo.com/imagen.jpg"
+          />
+          {portadaURL && (
+            <div className="preview-imagen">
+              <p>Vista previa:</p>
+              <img src={portadaURL} alt="Preview" onError={(e) => e.target.style.display = 'none'} />
+            </div>
+          )}
+        </div>
+
+        <div className="campo">
+          <label>Horas jugadas: {horasJugadas}h</label>
+          <input
+            type="number"
+            min="0"
+            value={horasJugadas}
+            onChange={(e) => setHorasJugadas(Number(e.target.value))}
           />
         </div>
 

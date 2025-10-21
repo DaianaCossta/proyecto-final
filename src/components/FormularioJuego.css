@@ -90,3 +90,32 @@ form {
 .btn-agregar:active {
   transform: translateY(0);
 }
+
+.campo input[type="number"] {
+  padding: 12px;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: border-color 0.3s;
+}
+
+.preview-imagen {
+  margin-top: 10px;
+  padding: 10px;
+  background: #f8f9fa;
+  border-radius: 8px;
+}
+
+.preview-imagen p {
+  margin: 0 0 8px 0;
+  font-size: 0.9rem;
+  color: #7f8c8d;
+}
+
+.preview-imagen img {
+  max-width: 200px;
+  max-height: 150px;
+  border-radius: 8px;
+  object-fit: cover;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
