@@ -4,6 +4,7 @@ import TarjetaJuego from './components/TarjetaJuego';
 import FormularioJuego from './components/FormularioJuego';
 import TarjetaReseña from './components/TarjetaReseña';
 import FormularioReseña from './components/FormularioReseña';
+import EstadisticasPersonales from './components/EstadisticasPersonales';
 
 function App() {
   const [juegos, setJuegos] = useState([
@@ -69,6 +70,10 @@ function App() {
     <div className="App">
       <h1>🎮 GameTracker</h1>
       
+      <section className="seccion">
+        <EstadisticasPersonales juegos={juegos} reseñas={reseñas} />
+      </section>
+
       <section className="seccion">
         <h2 className="titulo-seccion">📚 Mi Biblioteca</h2>
         <FormularioJuego onAgregarJuego={agregarJuego} />
