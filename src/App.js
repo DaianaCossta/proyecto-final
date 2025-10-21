@@ -4,7 +4,6 @@ import TarjetaJuego from './components/TarjetaJuego';
 import FormularioJuego from './components/FormularioJuego';
 
 function App() {
-  // Ahora la lista de juegos es un ESTADO
   const [juegos, setJuegos] = useState([
     {
       id: 1,
@@ -34,6 +33,13 @@ function App() {
     setJuegos([...juegos, nuevoJuego]);
   };
 
+  // ✨ NUEVA: Función para eliminar un juego
+  const eliminarJuego = (id) => {
+    // Filtrar el array: mantener todos los juegos EXCEPTO el que tiene este id
+    const juegosActualizados = juegos.filter(juego => juego.id !== id);
+    setJuegos(juegosActualizados);
+  };
+
   return (
     <div className="App">
       <h1>🎮 GameTracker</h1>
@@ -42,7 +48,11 @@ function App() {
       
       <div className="biblioteca">
         {juegos.map((juego) => (
-          <TarjetaJuego key={juego.id} juego={juego} />
+          <TarjetaJuego 
+            key={juego.id} 
+            juego={juego}
+            onEliminar={eliminarJuego}  
+          />
         ))}
       </div>
     </div>
