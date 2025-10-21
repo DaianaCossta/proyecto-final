@@ -1,8 +1,11 @@
+import { useState } from 'react';
 import './App.css';
 import TarjetaJuego from './components/TarjetaJuego';
+import FormularioJuego from './components/FormularioJuego';
 
 function App() {
-  const juegos = [
+  // Ahora la lista de juegos es un ESTADO
+  const [juegos, setJuegos] = useState([
     {
       id: 1,
       titulo: "The Last of Us",
@@ -24,11 +27,18 @@ function App() {
       completado: false,
       puntuacion: 4
     }
-  ];
+  ]);
+
+  // Función para agregar un nuevo juego
+  const agregarJuego = (nuevoJuego) => {
+    setJuegos([...juegos, nuevoJuego]);
+  };
 
   return (
     <div className="App">
       <h1>🎮 GameTracker</h1>
+      
+      <FormularioJuego onAgregarJuego={agregarJuego} />
       
       <div className="biblioteca">
         {juegos.map((juego) => (
