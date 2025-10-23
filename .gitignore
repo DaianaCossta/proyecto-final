@@ -1,0 +1,8 @@
+# Dependencias
+**/node_modules
+.DS_Store
+
+# Variables de entorno y archivos de configuración sensibles
+.env
+npm-debug.log
+yarn-error.log
