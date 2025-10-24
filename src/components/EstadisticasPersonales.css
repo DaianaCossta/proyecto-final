@@ -1,0 +1,128 @@
+.estadisticas-container {
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  padding: 40px;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  margin: 0 auto;
+  max-width: 1200px;
+}
+
+.estadisticas-container h2 {
+  text-align: center;
+  color: #2c3e50;
+  font-size: 2.2rem;
+  margin-bottom: 40px;
+  margin-top: 0;
+}
+
+.estadisticas-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 25px;
+  margin-bottom: 40px;
+}
+
+.tarjeta-estadistica {
+  background: white;
+  padding: 25px;
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.tarjeta-estadistica:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.tarjeta-estadistica .icono {
+  font-size: 3rem;
+  width: 70px;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 15px;
+  flex-shrink: 0;
+}
+
+.tarjeta-total .icono {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.tarjeta-completados .icono {
+  background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+}
+
+.tarjeta-progreso .icono {
+  background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+}
+
+.tarjeta-promedio .icono {
+  background: linear-gradient(135deg, #ffd89b 0%, #19547b 100%);
+}
+
+.tarjeta-reseñas .icono {
+  background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+}
+
+.estadistica-info {
+  flex: 1;
+}
+
+.estadistica-info h3 {
+  margin: 0 0 8px 0;
+  color: #34495e;
+  font-size: 0.95rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.estadistica-info .numero {
+  margin: 0;
+  color: #2c3e50;
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.barra-progreso-container {
+  background: white;
+  padding: 25px;
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
+
+.barra-progreso-container h3 {
+  margin: 0 0 15px 0;
+  color: #34495e;
+  font-size: 1.2rem;
+}
+
+.barra-progreso {
+  background: #e0e0e0;
+  height: 40px;
+  border-radius: 20px;
+  overflow: hidden;
+  position: relative;
+}
+
+.barra-completada {
+  height: 100%;
+  background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+  transition: width 0.5s ease;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding-right: 15px;
+  border-radius: 20px;
+}
+
+.porcentaje {
+  color: white;
+  font-weight: 700;
+  font-size: 1rem;
+}
