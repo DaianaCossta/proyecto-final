@@ -3,9 +3,9 @@ import mongoose from 'mongoose';
 import cors from 'cors';
 import dotenv from 'dotenv';
 import juegosRoutes from './routes/juegos.js';
-import reseñasRoutes from './routes/reseñas.js';
+import resenasRoutes from './routes/resenas.js';
 
-dotenv.config();
+dotenv.config(); // Cargar variables de entorno
 
 const app = express();
 const PORT = process.env.PORT || 5000;
@@ -21,8 +21,8 @@ app.use(cors({
 
 // Conexión a MongoDB
 mongoose.connect(MONGODB_URI)
-    .then(() => console.log('✅ Conectado a MongoDB Atlas'))
-    .catch(err => console.error('❌ Error de conexión a MongoDB:', err));
+    .then(() => console.log('Conectado a MongoDB Atlas'))
+    .catch(err => console.error('Error de conexión a MongoDB:', err));
 
 // Rutas
 app.get('/', (req, res) => {
@@ -30,9 +30,9 @@ app.get('/', (req, res) => {
 });
 
 app.use('/api/juegos', juegosRoutes);
-app.use('/api/reseñas', reseñasRoutes);
+app.use('/api/resenas', resenasRoutes);
 
 // Iniciar servidor
 app.listen(PORT, () => {
-    console.log(`🚀 Servidor ejecutándose en http://localhost:${PORT}`);
+    console.log(`Servidor ejecutándose en http://localhost:${PORT}`);
 });

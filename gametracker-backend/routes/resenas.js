@@ -1,13 +1,14 @@
 import express from 'express';
-import Reseña from '../models/Reseña.js';
+import Resena from '../models/Resena.js';
+
 
 const router = express.Router();
 
 // Obtener todas las reseñas
 router.get('/', async (req, res) => {
   try {
-    const reseñas = await Reseña.find().sort({ createdAt: -1 });
-    res.json(reseñas);
+    const resenas = await Resena.find().sort({ createdAt: -1 });
+    res.json(resenas);
   } catch (error) {
     res.status(500).json({ mensaje: 'Error al obtener reseñas', error: error.message });
   }
@@ -16,9 +17,10 @@ router.get('/', async (req, res) => {
 // Crear una nueva reseña
 router.post('/', async (req, res) => {
   try {
-    const nuevaReseña = new Reseña(req.body);
-    const reseñaGuardada = await nuevaReseña.save();
-    res.status(201).json(reseñaGuardada);
+    console.log("Reseña recibida:", req.body);
+    const nuevaResena = new Resena(req.body);
+    const resenaGuardada = await nuevaResena.save();
+    res.status(201).json(resenaGuardada);
   } catch (error) {
     res.status(400).json({ mensaje: 'Error al crear reseña', error: error.message });
   }
@@ -27,8 +29,8 @@ router.post('/', async (req, res) => {
 // Eliminar una reseña
 router.delete('/:id', async (req, res) => {
   try {
-    const reseñaEliminada = await Reseña.findByIdAndDelete(req.params.id);
-    if (!reseñaEliminada) {
+    const resenaEliminada = await Resena.findByIdAndDelete(req.params.id);
+    if (!resenaEliminada) {
       return res.status(404).json({ mensaje: 'Reseña no encontrada' });
     }
     res.json({ mensaje: 'Reseña eliminada correctamente' });

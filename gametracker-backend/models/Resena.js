@@ -1,6 +1,6 @@
 import mongoose from 'mongoose';
 
-const reseñaSchema = new mongoose.Schema({
+const resenaSchema = new mongoose.Schema({
   juegoId: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'Juego',
@@ -22,4 +22,4 @@ const reseñaSchema = new mongoose.Schema({
   timestamps: true
 });
 
-export default mongoose.model('Reseña', reseñaSchema);
+export default mongoose.model('Resena', resenaSchema);
