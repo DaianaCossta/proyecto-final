@@ -14,7 +14,7 @@ router.get('/', async (req, res) => {
   }
 });
 
-// Crear una nueva reseña
+// Crear una nueva reseña POST
 router.post('/', async (req, res) => {
   try {
     console.log("Reseña recibida:", req.body);
@@ -23,6 +23,23 @@ router.post('/', async (req, res) => {
     res.status(201).json(resenaGuardada);
   } catch (error) {
     res.status(400).json({ mensaje: 'Error al crear reseña', error: error.message });
+  }
+});
+
+// Actualizar una reseña
+router.put('/:id', async (req, res) => {
+  try {
+    const reseñaActualizada = await Reseña.findByIdAndUpdate(
+      req.params.id,
+      req.body,
+      { new: true }
+    );
+    if (!reseñaActualizada) {
+      return res.status(404).json({ mensaje: 'Reseña no encontrada' });
+    }
+    res.json(reseñaActualizada);
+  } catch (error) {
+    res.status(400).json({ mensaje: 'Error al actualizar reseña', error: error.message });
   }
 });
 
