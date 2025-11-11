@@ -29,16 +29,17 @@ router.post('/', async (req, res) => {
 // Actualizar una reseña
 router.put('/:id', async (req, res) => {
   try {
-    const reseñaActualizada = await Reseña.findByIdAndUpdate(
+    const reseñaActualizada = await Resena.findByIdAndUpdate(
       req.params.id,
       req.body,
-      { new: true }
+      { new: true, runValidators: true }
     );
     if (!reseñaActualizada) {
       return res.status(404).json({ mensaje: 'Reseña no encontrada' });
     }
     res.json(reseñaActualizada);
   } catch (error) {
+    console.error("Error en PUT /resenas/:id :", error.message);
     res.status(400).json({ mensaje: 'Error al actualizar reseña', error: error.message });
   }
 });
